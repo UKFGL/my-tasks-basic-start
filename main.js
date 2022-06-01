@@ -1,4 +1,4 @@
-// My Tasks Basic
+// My Tasks Basic Start Code
 
 // HTML Elements
 let goBtnEl = document.getElementById("go-btn");
@@ -6,8 +6,11 @@ let menuEl = document.getElementById("menu");
 let tasksEl = document.getElementById("tasks");
 
 // Global Variables
-// let tasks = initTasks();
-let tasks = JSON.parse(localStorage.getItem("tasks")) ?? [];
+let tasks = [
+  "Do the first thing",
+  "Do the second thing",
+  "oh yea, and the third thing",
+];
 displayTasks();
 
 // Go Btn - Menu Listener
@@ -26,46 +29,22 @@ function goBtnHandler() {
   }
 }
 
-function initTasks() {
-  let temp = localStorage.getItem("tasks");
-  if (!temp) {
-    return [];
-  } else {
-    return JSON.parse(temp);
-  }
-}
-
 function addTask() {
-  let newTask = prompt("Please enter a new task:");
-  tasks.push(newTask);
-  saveTasks();
-  displayTasks();
+  // Prompt user for a new task
+  // Add task to tasks array
+  // Display all tasks to show changes
 }
 
 function removeTask() {
-  let taskNum = prompt("Please enter number of task to remove:");
-  let index = taskNum - 1;
-  tasks.splice(index, 1);
-  saveTasks();
-  displayTasks();
+  // Prompt user for task to remove
+  // Remove task from task array (if it exists)
+  // Display all tasks to show changes
 }
 
 function displayTasks() {
-  let outputStr = "<ol>";
-  for (let i = 0; i < tasks.length; i++) {
-    outputStr += `<li>${tasks[i]}</li>`;
-  }
-  outputStr += "</ol>";
-
-  tasksEl.innerHTML = outputStr;
-}
-
-function saveTasks() {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+  // Diplay all tasks by putting them in the 'tasksEl' <div>
 }
 
 function clearAll() {
-  tasks = [];
-  saveTasks();
-  displayTasks();
+  // Clear all tasks
 }
