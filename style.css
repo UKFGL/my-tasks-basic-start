@@ -1,0 +1,16 @@
+body {
+  width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+ol {
+  padding-left: 20px;
+}
+
+li {
+  font-family: Arial;
+  border: 1px solid grey;
+  padding: 5px;
+  margin-bottom: 5px;
+}
