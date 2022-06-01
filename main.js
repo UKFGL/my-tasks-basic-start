@@ -1,5 +1,11 @@
 // My Tasks Basic Start Code
 
+// 1. FIRST COMPLETE BASIC FUNCTIONALITY
+// Write code for the displayTasks, addTask, removeTask and clearAll functions
+
+// 2. THEN IMPLEMENT PERSISTENT DATA
+// Add localStorage to make the data persistent (I can help with this)
+
 // HTML Elements
 let goBtnEl = document.getElementById("go-btn");
 let menuEl = document.getElementById("menu");
@@ -29,6 +35,10 @@ function goBtnHandler() {
   }
 }
 
+function displayTasks() {
+  // Diplay all tasks by putting them in the 'tasksEl' <div>
+}
+
 function addTask() {
   // Prompt user for a new task
   // Add task to tasks array
@@ -39,10 +49,6 @@ function removeTask() {
   // Prompt user for task to remove
   // Remove task from task array (if it exists)
   // Display all tasks to show changes
-}
-
-function displayTasks() {
-  // Diplay all tasks by putting them in the 'tasksEl' <div>
 }
 
 function clearAll() {
