@@ -7,3 +7,12 @@ body {
 #tasks {
   margin-top: 50px;
 }
+
+.listed-task {
+  display: flex;
+  margin: 5px;
+}
+
+.remove-btn {
+  margin-left: 5px;
+}

@@ -10,6 +10,7 @@
 let goBtnEl = document.getElementById("go-btn");
 let menuEl = document.getElementById("menu");
 let tasksEl = document.getElementById("tasks");
+let tasksInEl = document.getElementById("task-in");
 
 // Global Variables
 let tasks = JSON.parse(localStorage.getItem("savedTasks")) ?? [];
@@ -36,15 +37,16 @@ function displayTasks() {
   let tasksStr = "";
 
   for (let i = 0; i < tasks.length; i++) {
-    tasksStr += "<li>" + tasks[i] + "</li>"
+    tasksStr += "<div class='listed-task'><li>" + tasks[i] + "</li> <button class='remove-btn'>Remove Task</button></div>";
   }
 
   tasksEl.innerHTML = tasksStr;
 }
 
 function addTask() {
-  // Prompt user for a new task
-  let newTask = prompt("What's your next task?");
+  // Get new task
+  // let newTask = prompt("What's your next task?");
+  let newTask = tasksInEl.value;
 
   // Add task to tasks array
   tasks.push(newTask);
@@ -57,7 +59,7 @@ function addTask() {
 
 function removeTask() {
   // Prompt user for task to remove
-  let choosenTask = prompt("Enter number of task you wish to remove");
+  let choosenTask = +tasksInEl.value;
 
   // Remove task from task array (if it exists)
   tasks.splice(choosenTask - 1, 1);
