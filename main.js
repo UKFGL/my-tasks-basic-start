@@ -22,7 +22,7 @@ goBtnEl.addEventListener("click", goBtnHandler);
 function goBtnHandler() {
   // Get Menu Selection
   let selection = menuEl.value;
-  
+
   if (selection === "add") {
     addTask();
   } else if (selection === "remove") {
@@ -33,14 +33,29 @@ function goBtnHandler() {
 }
 
 function displayTasks() {
-  // Diplay all tasks by putting them in the 'tasksEl' <div>
-  let tasksStr = "";
+  // Reset tasksEl
+  tasksEl.innerHTML = "";
 
+  // Diplay all tasks by putting them in the 'tasksEl' <ol>
   for (let i = 0; i < tasks.length; i++) {
-    tasksStr += "<div class='listed-task'><li>" + tasks[i] + "</li> <button class='remove-btn'>Remove Task</button></div>";
-  }
+    let liEl = document.createElement("li");
+    liEl.innerHTML = tasks[i];
 
-  tasksEl.innerHTML = tasksStr;
+    let buttonEl = document.createElement("button");
+    buttonEl.innerHTML = "Remove";
+    buttonEl.dataset.index = i;
+    buttonEl.addEventListener("click", removeTask);
+
+    liEl.appendChild(buttonEl);
+
+    tasksEl.appendChild(liEl);
+  }
+}
+
+function removeTask2(e) {
+  let index = +e.target.dataset.index;
+  tasks.splice(index, 1);
+  displayTasks();
 }
 
 function addTask() {
@@ -54,7 +69,6 @@ function addTask() {
 
   // Display all tasks to show changes
   displayTasks();
-
 }
 
 function removeTask() {
@@ -71,11 +85,13 @@ function removeTask() {
 
 function clearAll() {
   // Clear all tasks
-  let confirmation = prompt("Are you sure you want to clear your list? Enter 'yes' & press ok to clear list.");
+  let confirmation = prompt(
+    "Are you sure you want to clear your list? Enter 'yes' & press ok to clear list."
+  );
 
   if (confirmation === "yes") {
     tasks = [];
-  } 
+  }
 
   displayTasks();
 }
