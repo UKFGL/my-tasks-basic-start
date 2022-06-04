@@ -44,7 +44,7 @@ function displayTasks() {
     let buttonEl = document.createElement("button");
     buttonEl.innerHTML = "Remove";
     buttonEl.dataset.index = i;
-    buttonEl.addEventListener("click", removeTask);
+    buttonEl.addEventListener("click", removeTask2);
 
     liEl.appendChild(buttonEl);
 
